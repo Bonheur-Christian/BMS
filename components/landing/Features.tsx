@@ -16,9 +16,9 @@ export default function Features() {
     return (
         <section id="features" className="py-20 px-6">
             <div className="max-w-7xl mx-auto">
-                <div>
+                <div className='flex flex-col items-center justify-center space-y-4 mb-4'>
                     <h1 className='text-teal-400 text-3xl'>BMS Features</h1>
-                    <p></p>
+                    <p className='text-gray-500 text-center  text-lg w-1/2'>BMS Offers Different Features Intended To Improve Overall Business Management </p>
                 </div>
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {features.map((f, i) => {
