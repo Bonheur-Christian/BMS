@@ -10,6 +10,7 @@ import Link from 'next/link'
 import { useState } from 'react'
 import { ArrowRight, Mail, Lock, Eye, EyeOff, AlertCircle, CheckCircle2 } from 'lucide-react'
 import Image from 'next/image'
+import { useRouter } from "next/navigation"
 
 export default function LoginPage() {
     const [email, setEmail] = useState('')
@@ -18,6 +19,8 @@ export default function LoginPage() {
     const [rememberMe, setRememberMe] = useState(false)
     const [isLoading, setIsLoading] = useState(false)
     const [error, setError] = useState('')
+
+    const router = useRouter()
 
     const validateForm = () => {
         if (!email || !password) {
@@ -35,6 +38,8 @@ export default function LoginPage() {
 
         setIsLoading(true)
         await new Promise(resolve => setTimeout(resolve, 1500))
+
+        router.push('/portal/business-owner')
         setIsLoading(false)
     }
 
@@ -86,12 +91,13 @@ export default function LoginPage() {
                             <div className="relative">
                                 <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
                                 <Input
+                                    autoFocus
                                     id="email"
                                     type="email"
                                     placeholder="you@example.com"
                                     value={email}
                                     onChange={(e) => setEmail(e.target.value)}
-                                    className="pl-10"
+                                    className="pl-10 border-primary/40"
                                 />
                             </div>
                         </div>
@@ -114,7 +120,7 @@ export default function LoginPage() {
                                     placeholder="••••••••"
                                     value={password}
                                     onChange={(e) => setPassword(e.target.value)}
-                                    className="pl-10 pr-10"
+                                    className="pl-10 pr-10 border-primary/40"
                                 />
                                 <button
                                     type="button"

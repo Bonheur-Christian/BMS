@@ -1,0 +1,127 @@
+'use client'
+
+import { LayoutDashboard, Building2, Users, ClipboardList, BarChart3, Settings, LogOut, Menu } from 'lucide-react'
+import Link from 'next/link'
+import { useState } from 'react'
+import { Button } from '@/components/ui/button'
+import { usePathname } from 'next/navigation'
+
+const navItems = [
+  {
+    href: '/',
+    label: 'Dashboard',
+    icon: LayoutDashboard,
+  },
+  {
+    href: '/dashboard/businesses',
+    label: 'Businesses',
+    icon: Building2,
+  },
+  {
+    href: '/dashboard/team',
+    label: 'Team',
+    icon: Users,
+  },
+  {
+    href: '/dashboard/work-assignments',
+    label: 'Work',
+    icon: ClipboardList,
+  },
+  {
+    href: '/dashboard/analytics',
+    label: 'Analytics',
+    icon: BarChart3,
+  },
+]
+
+export function DashboardSidebar() {
+  const [isOpen, setIsOpen] = useState(true)
+  const pathname = usePathname()
+
+  return (
+    <>
+      {/* Mobile Toggle */}
+      <div className="lg:hidden fixed top-4 left-4 z-50">
+        <Button
+          variant="ghost"
+          size="icon"
+          onClick={() => setIsOpen(!isOpen)}
+          className="text-foreground"
+        >
+          <Menu className="w-5 h-5" />
+        </Button>
+      </div>
+
+      {/* Sidebar */}
+      <div
+        className={`${
+          isOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'
+        } fixed lg:relative inset-y-0 left-0 w-64 bg-card border-r border-border/50 flex flex-col transition-transform duration-300 z-40`}
+      >
+        {/* Logo */}
+        <div className="p-6 border-b border-border/50">
+          <Link href="/dashboard" className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center">
+              <span className="text-white font-bold text-sm">BMS</span>
+            </div>
+            <div>
+              <p className="font-bold text-foreground text-sm">BMS</p>
+              <p className="text-xs text-foreground/60">Management</p>
+            </div>
+          </Link>
+        </div>
+
+        {/* Navigation */}
+        <nav className="flex-1 p-4 space-y-2 overflow-y-auto">
+          {navItems.map((item) => {
+            const Icon = item.icon
+            const isActive = pathname === item.href || pathname.startsWith(item.href + '/')
+            
+            return (
+              <Link
+                key={item.href}
+                href={item.href}
+                className={`flex items-center gap-3 px-4 py-3 rounded-lg transition-all ${
+                  isActive
+                    ? 'bg-primary/10 text-primary border border-primary/30'
+                    : 'text-foreground/70 hover:text-foreground hover:bg-foreground/5 border border-transparent'
+                }`}
+                onClick={() => setIsOpen(false)}
+              >
+                <Icon className="w-5 h-5" />
+                <span className="font-medium">{item.label}</span>
+              </Link>
+            )
+          })}
+        </nav>
+
+        {/* Bottom Section */}
+        <div className="p-4 space-y-3 border-t border-border/50">
+          <Link
+            href="/dashboard/settings"
+            className="flex items-center gap-3 px-4 py-3 rounded-lg text-foreground/70 hover:text-foreground hover:bg-foreground/5 transition-all border border-transparent"
+            onClick={() => setIsOpen(false)}
+          >
+            <Settings className="w-5 h-5" />
+            <span className="font-medium">Settings</span>
+          </Link>
+          <Button
+            variant="outline"
+            className="w-full justify-start gap-3 border-border/50 text-foreground/70 hover:text-foreground hover:bg-destructive/10 hover:border-destructive/30 bg-transparent"
+          >
+            <LogOut className="w-5 h-5" />
+            <span>Sign Out</span>
+          </Button>
+        </div>
+      </div>
+
+      {/* Mobile Overlay */}
+      {isOpen && (
+        <div
+          className="fixed inset-0 bg-black/50 lg:hidden z-30"
+          onClick={() => setIsOpen(false)}
+        />
+      )}
+    </>
+  )
+}

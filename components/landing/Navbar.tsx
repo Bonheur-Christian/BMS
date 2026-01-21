@@ -4,8 +4,11 @@ import { Button } from '@/components/ui/button'
 import { ThemeToggle } from '@/components/theme-toggle'
 import Link from 'next/link'
 import Image from 'next/image'
+import { useRouter } from 'next/navigation'
 
 export default function Navbar() {
+
+    const router = useRouter() 
     return (
         <nav className="fixed top-0 left-0 right-0 z-50 border-b border-border/50 bg-background/80 backdrop-blur-xl">
             <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-2">
@@ -41,7 +44,7 @@ export default function Navbar() {
                         Pricing
                     </Link>
                     <ThemeToggle />
-                    <Button size="lg" className='py-6 px-8 bg-teal-500 text-white cursor-pointer hover:bg-teal-600'>Get Started</Button>
+                    <Button onClick={()=> router.push('/auth/login')} size="lg" className='py-6 px-8 bg-teal-500 text-white cursor-pointer hover:bg-teal-600'>Get Started</Button>
                 </div>
 
             </div>
