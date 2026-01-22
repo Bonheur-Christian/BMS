@@ -105,14 +105,14 @@ export default function WorkAssignmentsPage() {
 
     return (
         <Suspense fallback={<Loading />}>
-            <div className="p-6 space-y-8">
+            <div className="p-6 space-y-8 w-[95%] mx-auto">
                 {/* Header */}
                 <div className="flex items-center justify-between">
                     <div className="space-y-2">
                         <h1 className="text-3xl font-bold text-foreground">Work Assignments</h1>
                         <p className="text-foreground/60">Manage tasks and track progress</p>
                     </div>
-                    <Link href="/dashboard/work-assignments/create">
+                    <Link href="work-assignments/create">
                         <Button className="bg-primary hover:bg-primary/90 text-primary-foreground gap-2">
                             <Plus className="w-4 h-4" />
                             Create Task

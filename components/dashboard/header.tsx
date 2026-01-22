@@ -26,8 +26,11 @@ export function DashboardHeader() {
         </div>
       </div>
 
+      {/* Spacer for mobile */}
+      <div className="flex-1 lg:hidden" />
+
       {/* Right Actions */}
-      <div className="flex items-center gap-4 lg:gap-6">
+      <div className="flex items-center gap-4 lg:gap-6 ml-auto">
         {/* Theme Toggle */}
         <ThemeToggle />
 

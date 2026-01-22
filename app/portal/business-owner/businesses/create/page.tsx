@@ -94,7 +94,7 @@ export default function CreateBusinessPage() {
         ))}
       </div>
 
-      <Card className="border-border/50 bg-card/50 backdrop-blur p-8">
+      <Card className="border-border/50 bg-card/50 backdrop-blur p-8 w-[70%]">
         {/* Step 1: Basic Info */}
         {step === 1 && (
           <div className="space-y-6">
@@ -123,7 +123,7 @@ export default function CreateBusinessPage() {
                   Industry *
                 </Label>
                 <Select value={formData.industry} onValueChange={(value) => handleSelectChange(value, 'industry')}>
-                  <SelectTrigger className="mt-2 bg-input border-border/50 text-foreground">
+                  <SelectTrigger className="mt-2 bg-input border-border/50 text-foreground w-full py-6">
                     <SelectValue placeholder="Select an industry" />
                   </SelectTrigger>
                   <SelectContent>
@@ -150,19 +150,7 @@ export default function CreateBusinessPage() {
                 />
               </div>
 
-              <div>
-                <Label htmlFor="website" className="text-foreground">
-                  Website
-                </Label>
-                <Input
-                  id="website"
-                  name="website"
-                  value={formData.website}
-                  onChange={handleInputChange}
-                  placeholder="https://example.com"
-                  className="mt-2 bg-input border-border/50 text-foreground placeholder:text-foreground/40"
-                />
-              </div>
+            
             </div>
           </div>
         )}

@@ -1,4 +1,4 @@
-import { LayoutDashboard, Building2, Users, ClipboardList, BarChart3, Settings, LogOut, Menu } from 'lucide-react'
+import { LayoutDashboard, Building2, Users, ClipboardList, BarChart3 } from 'lucide-react'
 
 export const navItems = [
     {

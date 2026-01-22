@@ -3,7 +3,6 @@
 import { Card } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { CheckCircle } from 'lucide-react'
-import { useState } from 'react'
 
 
 
@@ -64,8 +63,6 @@ const pricingPlans = [
 
 export default function Pricing() {
 
-  const [hoveredPricingIndex, setHoveredPricingIndex] = useState<number | null>(null)
-
   return (
     <section id="pricing" className="relative py-20 px-6 border-t border-border/50">
       <div className="max-w-7xl mx-auto">
@@ -83,11 +80,9 @@ export default function Pricing() {
             <Card
               key={index}
               className={`relative overflow-hidden transition-all duration-300 ${plan.highlighted
-                  ? 'border-primary/50 bg-gradient-to-br from-card to-card/50 ring-1 ring-primary/50 scale-105'
-                  : 'border-border/50 bg-card/50'
+                ? 'border-primary/50 bg-gradient-to-br from-card to-card/50 ring-1 ring-primary/50 scale-105'
+                : 'border-border/50 bg-card/50'
                 }`}
-              onMouseEnter={() => setHoveredPricingIndex(index)}
-              onMouseLeave={() => setHoveredPricingIndex(null)}
             >
               {plan.highlighted && (
                 <div className="absolute top-0 right-0 px-3 py-1 bg-gradient-to-r from-primary to-accent text-white text-xs font-semibold rounded-bl-lg">
@@ -110,8 +105,8 @@ export default function Pricing() {
 
                 <Button
                   className={`w-full ${plan.highlighted
-                      ? 'bg-primary hover:bg-primary/90 text-primary-foreground'
-                      : 'bg-card border border-primary/30 text-foreground hover:bg-primary/10'
+                    ? 'bg-primary hover:bg-primary/90 text-primary-foreground'
+                    : 'bg-card border border-primary/30 text-foreground hover:bg-primary/10'
                     }`}
                 >
                   {plan.cta}

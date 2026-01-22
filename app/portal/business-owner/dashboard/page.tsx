@@ -2,7 +2,7 @@
 
 import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
-import { Plus, TrendingUp, Users, Building2, ClipboardList, AlertCircle, ArrowRight } from 'lucide-react'
+import { TrendingUp, Users, Building2, ClipboardList, AlertCircle, ArrowRight } from 'lucide-react'
 import Link from 'next/link'
 
 export default function DashboardPage() {
@@ -70,7 +70,7 @@ export default function DashboardPage() {
       {/* Header */}
       <div className="space-y-2">
         <h1 className="text-3xl font-bold text-foreground">Welcome, John 👋</h1>
-        <p className="text-foreground/60">Here's what's happening with your businesses today</p>
+        <p className="text-foreground/60">Here&apos;s what&apos;s happening with your businesses today</p>
       </div>
 
       {/* Stats Grid */}
