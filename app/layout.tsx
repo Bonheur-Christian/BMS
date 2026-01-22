@@ -8,7 +8,6 @@ import Providers from "@/components/common/LoaderProvider"
 export const metadata: Metadata = {
   title: 'BMS - Business Management System',
   description: 'Simplify your business operations with intelligent, configurable management tools designed for modern entrepreneurs.',
-  generator: 'v0.app',
   icons: {
     icon: [
       {
