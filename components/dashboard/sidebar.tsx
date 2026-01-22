@@ -1,38 +1,13 @@
 'use client'
 
-import { LayoutDashboard, Building2, Users, ClipboardList, BarChart3, Settings, LogOut, Menu } from 'lucide-react'
+import { Settings, LogOut, Menu } from 'lucide-react'
 import Link from 'next/link'
 import { useState } from 'react'
 import { Button } from '@/components/ui/button'
 import { usePathname } from 'next/navigation'
+import Image from 'next/image'
+import { navItems } from '@/app/constants/nav-items'
 
-const navItems = [
-  {
-    href: '/',
-    label: 'Dashboard',
-    icon: LayoutDashboard,
-  },
-  {
-    href: '/dashboard/businesses',
-    label: 'Businesses',
-    icon: Building2,
-  },
-  {
-    href: '/dashboard/team',
-    label: 'Team',
-    icon: Users,
-  },
-  {
-    href: '/dashboard/work-assignments',
-    label: 'Work',
-    icon: ClipboardList,
-  },
-  {
-    href: '/dashboard/analytics',
-    label: 'Analytics',
-    icon: BarChart3,
-  },
-]
 
 export function DashboardSidebar() {
   const [isOpen, setIsOpen] = useState(true)
@@ -54,19 +29,26 @@ export function DashboardSidebar() {
 
       {/* Sidebar */}
       <div
-        className={`${
-          isOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'
-        } fixed lg:relative inset-y-0 left-0 w-64 bg-card border-r border-border/50 flex flex-col transition-transform duration-300 z-40`}
+        className={`${isOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'
+          } fixed lg:relative inset-y-0 left-0 w-64 bg-card border-r border-border/50 flex flex-col transition-transform duration-300 z-40`}
       >
         {/* Logo */}
         <div className="p-6 border-b border-border/50">
-          <Link href="/dashboard" className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center">
-              <span className="text-white font-bold text-sm">BMS</span>
-            </div>
-            <div>
-              <p className="font-bold text-foreground text-sm">BMS</p>
-              <p className="text-xs text-foreground/60">Management</p>
+          <Link href="/" className="flex items-center gap-3">
+            <Image
+              src="/images/bms-logo.png"
+              alt="BMS logo"
+              width={90}
+              height={90}
+
+            />
+            <div className="flex flex-col leading-tight ms-[-3.5rem]">
+              <span className="text-lg font-bold text-foreground">
+                BMS
+              </span>
+              <span className="text-xs text-muted-foreground">
+                Business Management Platform
+              </span>
             </div>
           </Link>
         </div>
@@ -76,16 +58,15 @@ export function DashboardSidebar() {
           {navItems.map((item) => {
             const Icon = item.icon
             const isActive = pathname === item.href || pathname.startsWith(item.href + '/')
-            
+
             return (
               <Link
                 key={item.href}
                 href={item.href}
-                className={`flex items-center gap-3 px-4 py-3 rounded-lg transition-all ${
-                  isActive
-                    ? 'bg-primary/10 text-primary border border-primary/30'
-                    : 'text-foreground/70 hover:text-foreground hover:bg-foreground/5 border border-transparent'
-                }`}
+                className={`flex items-center gap-3 px-4 py-3 rounded-lg transition-all ${isActive
+                  ? 'bg-primary/10 text-primary border border-primary/30'
+                  : 'text-foreground/70 hover:text-foreground hover:bg-foreground/5 border border-transparent'
+                  }`}
                 onClick={() => setIsOpen(false)}
               >
                 <Icon className="w-5 h-5" />

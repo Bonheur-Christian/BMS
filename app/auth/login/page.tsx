@@ -39,7 +39,7 @@ export default function LoginPage() {
         setIsLoading(true)
         await new Promise(resolve => setTimeout(resolve, 1500))
 
-        router.push('/portal/business-owner')
+        router.push('/portal/business-owner/dashboard')
         setIsLoading(false)
     }
 
