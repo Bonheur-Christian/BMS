@@ -1,6 +1,6 @@
 'use client'
 
-import { Settings, LogOut, Menu } from 'lucide-react'
+import { Settings, LogOut, Menu, X } from 'lucide-react'
 import Link from 'next/link'
 import { useState } from 'react'
 import { Button } from '@/components/ui/button'
@@ -10,7 +10,7 @@ import { navItems } from '@/app/constants/nav-items'
 
 
 export function DashboardSidebar() {
-  const [isOpen, setIsOpen] = useState(true)
+  const [isOpen, setIsOpen] = useState(false)
   const pathname = usePathname()
 
   return (
@@ -21,19 +21,19 @@ export function DashboardSidebar() {
           variant="ghost"
           size="icon"
           onClick={() => setIsOpen(!isOpen)}
-          className="text-foreground"
+          className="text-foreground bg-card/80 backdrop-blur-sm"
         >
-          <Menu className="w-5 h-5" />
+          {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
         </Button>
       </div>
 
       {/* Sidebar */}
       <div
         className={`${isOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'
-          } fixed lg:relative inset-y-0 left-0 w-64 bg-card border-r border-border/50 flex flex-col transition-transform duration-300 z-40`}
+          } fixed lg:relative inset-y-0 left-0 w-64 bg-card border-r border-primary/20 flex flex-col transition-transform duration-300 z-40`}
       >
         {/* Logo */}
-        <div className="p-6 border-b border-border/50">
+        <div className="p-6 border-b border-primary/20">
           <Link href="/" className="flex items-center gap-3">
             <Image
               src="/images/bms-logo.png"
@@ -64,12 +64,12 @@ export function DashboardSidebar() {
                 key={item.href}
                 href={item.href}
                 className={`flex items-center gap-3 px-4 py-3 rounded-lg transition-all ${isActive
-                  ? 'bg-primary/10 text-primary border border-primary/30'
-                  : 'text-foreground/70 hover:text-foreground hover:bg-foreground/5 border border-transparent'
+                  ? 'bg-primary text-primary-foreground shadow-sm font-semibold'
+                  : 'text-foreground/70 hover:text-foreground hover:bg-accent/50 border border-transparent'
                   }`}
                 onClick={() => setIsOpen(false)}
               >
-                <Icon className="w-5 h-5" />
+                <Icon className={`w-5 h-5 ${isActive ? 'stroke-[2.5]' : ''}`} />
                 <span className="font-medium">{item.label}</span>
               </Link>
             )

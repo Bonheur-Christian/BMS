@@ -2,27 +2,27 @@ import { LayoutDashboard, Building2, Users, ClipboardList, BarChart3, Settings, 
 
 export const navItems = [
     {
-        href: '/dashboard',
+        href: '/portal/business-owner/dashboard',
         label: 'Dashboard',
         icon: LayoutDashboard,
     },
     {
-        href: '/dashboard/businesses',
+        href: '/portal/business-owner/businesses',
         label: 'Businesses',
         icon: Building2,
     },
     {
-        href: '/dashboard/workers',
+        href: '/portal/business-owner/workers',
         label: 'Workers',
         icon: Users,
     },
     {
-        href: '/dashboard/work-assignments',
+        href: '/portal/business-owner/work-assignments',
         label: 'Tasks',
         icon: ClipboardList,
     },
     {
-        href: '/dashboard/analytics',
+        href: '/portal/business-owner/analytics',
         label: 'Analytics',
         icon: BarChart3,
     },

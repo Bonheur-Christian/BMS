@@ -3,6 +3,7 @@
 import { Bell, Search, User, ChevronDown } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
+import { ThemeToggle } from '@/components/theme-toggle'
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -13,7 +14,7 @@ import {
 
 export function DashboardHeader() {
   return (
-    <header className="h-16 border-b border-border/50 bg-card/50 backdrop-blur-sm flex items-center justify-between px-6">
+    <header className="h-16 border-b border-primary/20 bg-card/50 backdrop-blur-sm flex items-center justify-between px-6">
       {/* Search */}
       <div className="flex-1 max-w-md hidden lg:block">
         <div className="relative">
@@ -27,6 +28,9 @@ export function DashboardHeader() {
 
       {/* Right Actions */}
       <div className="flex items-center gap-4 lg:gap-6">
+        {/* Theme Toggle */}
+        <ThemeToggle />
+
         {/* Notifications */}
         <Button variant="ghost" size="icon" className="relative text-foreground/70 hover:text-foreground hover:bg-foreground/5">
           <Bell className="w-5 h-5" />
