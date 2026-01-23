@@ -15,7 +15,6 @@ export default function BusinessDetailPage() {
     const business = {
         name: 'Tech Startup Inc',
         industry: 'Software Development',
-        website: 'https://techstartup.com',
         employees: 24,
         departments: 4,
         founded: 2022,
@@ -39,7 +38,7 @@ export default function BusinessDetailPage() {
     ]
 
     return (
-        <div className="p-6 space-y-8">
+        <div className="p-6 space-y-8 w-[95%] mx-auto">
             {/* Header */}
             <div className="flex items-start justify-between">
                 <div className="space-y-2">
@@ -57,7 +56,7 @@ export default function BusinessDetailPage() {
                         </div>
                     </div>
                 </div>
-                <Link href={`/dashboard/businesses/${businessId}/settings`}>
+                <Link href={`${businessId}/settings`}>
                     <Button className="bg-primary hover:bg-primary/90 text-primary-foreground gap-2">
                         <Settings className="w-4 h-4" />
                         Settings
@@ -89,13 +88,13 @@ export default function BusinessDetailPage() {
             {/* Tabs */}
             <Tabs defaultValue="overview" className="w-full">
                 <TabsList className="grid w-full grid-cols-3 bg-card/50 border border-border/50 p-1">
-                    <TabsTrigger value="overview" className="data-[state=active]:bg-primary/10 data-[state=active]:text-primary">
+                    <TabsTrigger value="overview" className="data-[state=active]:bg-teal-600 data-[state=active]:text-primary-foreground">
                         Overview
                     </TabsTrigger>
-                    <TabsTrigger value="departments" className="data-[state=active]:bg-primary/10 data-[state=active]:text-primary">
+                    <TabsTrigger value="departments" className="data-[state=active]:bg-teal-600 data-[state=active]:text-primary-foreground">
                         Departments
                     </TabsTrigger>
-                    <TabsTrigger value="team" className="data-[state=active]:bg-primary/10 data-[state=active]:text-primary">
+                    <TabsTrigger value="team" className="data-[state=active]:bg-teal-600 data-[state=active]:text-primary-foreground">
                         Team
                     </TabsTrigger>
                 </TabsList>
@@ -106,12 +105,7 @@ export default function BusinessDetailPage() {
                         <h3 className="text-lg font-bold text-foreground mb-6">Business Information</h3>
                         <div className="grid md:grid-cols-2 gap-8">
                             <div className="space-y-4">
-                                <div>
-                                    <p className="text-sm text-foreground/60">Website</p>
-                                    <a href={business.website} target="_blank" rel="noopener noreferrer" className="text-primary hover:text-primary/80">
-                                        {business.website}
-                                    </a>
-                                </div>
+
                                 <div>
                                     <p className="text-sm text-foreground/60">Location</p>
                                     <p className="text-foreground font-medium">{business.location}</p>
@@ -129,8 +123,8 @@ export default function BusinessDetailPage() {
                 <TabsContent value="departments" className="space-y-6 mt-6">
                     <div className="flex items-center justify-between">
                         <h3 className="text-lg font-bold text-foreground">Departments</h3>
-                        <Link href={`/dashboard/businesses/${businessId}/departments/create`}>
-                            <Button size="sm" className="bg-primary hover:bg-primary/90 text-primary-foreground">
+                        <Link href={`${businessId}/departments/create`}>
+                            <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground cursor-pointer ">
                                 Add Department
                             </Button>
                         </Link>
@@ -158,8 +152,8 @@ export default function BusinessDetailPage() {
                 <TabsContent value="team" className="space-y-6 mt-6">
                     <div className="flex items-center justify-between">
                         <h3 className="text-lg font-bold text-foreground">Team Members</h3>
-                        <Link href={`/dashboard/team/invite?business=${businessId}`}>
-                            <Button size="sm" className="bg-primary hover:bg-primary/90 text-primary-foreground">
+                        <Link href={`/portal/business-owner/workers/invite?business=${businessId}`}>
+                            <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground cursor-pointer">
                                 Add Member
                             </Button>
                         </Link>

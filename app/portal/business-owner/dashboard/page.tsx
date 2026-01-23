@@ -4,8 +4,11 @@ import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
 import { TrendingUp, Users, Building2, ClipboardList, AlertCircle, ArrowRight } from 'lucide-react'
 import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 
 export default function DashboardPage() {
+
+  const router = useRouter()
   const stats = [
     {
       label: 'Active Businesses',
@@ -49,24 +52,24 @@ export default function DashboardPage() {
       label: 'Create Business',
       description: 'Set up a new business entity',
       icon: Building2,
-      href: '/dashboard/businesses/create',
+      href: '/portal/business-owner/businesses/create',
     },
     {
       label: 'Add Team Member',
       description: 'Invite someone to your team',
       icon: Users,
-      href: '/dashboard/team/invite',
+      href: '/portal/business-owner/workers/invite',
     },
     {
       label: 'Assign Work',
       description: 'Create and assign new tasks',
       icon: ClipboardList,
-      href: '/dashboard/work-assignments/create',
+      href: '/portal/business-owner/work-assignments/create',
     },
   ]
 
   return (
-    <div className="p-6 space-y-8">
+    <div className="p-6 space-y-8 w-[95%] mx-auto">
       {/* Header */}
       <div className="space-y-2">
         <h1 className="text-3xl font-bold text-foreground">Welcome, John 👋</h1>
@@ -152,7 +155,7 @@ export default function DashboardPage() {
               <p className="text-sm text-foreground/60">Members Online</p>
               <p className="font-semibold text-foreground">12 of 24</p>
             </div>
-            <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground mt-4">
+            <Button onClick={()=> router.push('/portal/business-owner/businesses')} className="w-full bg-primary hover:bg-primary/90 text-primary-foreground mt-4">
               View All Businesses
             </Button>
           </div>

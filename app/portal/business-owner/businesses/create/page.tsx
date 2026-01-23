@@ -61,7 +61,7 @@ export default function CreateBusinessPage() {
   }
 
   return (
-    <div className="p-6 space-y-8">
+    <div className="p-6 space-y-8 w-[95%] mx-auto">
       {/* Header */}
       <div className="space-y-2">
         <Link href="/portal/business-owner/businesses" className="flex items-center gap-2 text-primary hover:text-primary/80 text-sm mb-4">

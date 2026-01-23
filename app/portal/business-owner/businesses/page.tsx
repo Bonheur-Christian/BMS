@@ -46,7 +46,7 @@ export default function BusinessesPage() {
     ]
 
     return (
-        <div className="p-6 space-y-8">
+        <div className="p-6 space-y-8 w-[95%] mx-auto">
             {/* Header */}
             <div className="flex items-center justify-between">
                 <div className="space-y-2">
