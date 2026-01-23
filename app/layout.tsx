@@ -62,6 +62,20 @@ export const metadata: Metadata = {
   title: "BMS - Business Management System",
   description:
     "Simplify your business operations with intelligent, configurable management tools designed for modern entrepreneurs.",
+  icons: {
+    icon: [
+      {
+        url: 'images/bms-logo.png',
+        media: '(prefers-color-scheme: light)',
+      },
+      {
+        url: 'images/bms-logo.png',
+        media: '(prefers-color-scheme: dark)',
+      },
+
+    ],
+    apple: 'images/bms-logo.png',
+  },
 }
 
 export default function RootLayout({
