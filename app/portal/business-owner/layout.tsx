@@ -1,8 +1,8 @@
 import React from 'react'
-import { DashboardSidebar } from '@/components/dashboard/sidebar'
-import { DashboardHeader } from '@/components/dashboard/header'
+import { DashboardSidebar } from '@/components/business-owner/sidebar'
+import { DashboardHeader } from '@/components/common/header'
 
-export default function DashboardLayout({
+export default function BusinessOwnerLayout({
   children,
 }: {
   children: React.ReactNode

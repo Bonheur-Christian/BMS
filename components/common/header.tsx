@@ -14,7 +14,7 @@ import {
 
 export function DashboardHeader() {
   return (
-    <header className="h-24 border-b border-primary/20 bg-card/50 backdrop-blur-sm flex items-center justify-between px-6">
+    <header className="h-16 border-b border-primary/20 bg-card/50 backdrop-blur-sm flex items-center justify-between px-6">
       {/* Search */}
       <div className="flex-1 max-w-md hidden lg:block">
         <div className="relative">

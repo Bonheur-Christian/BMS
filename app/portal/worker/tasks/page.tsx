@@ -56,29 +56,6 @@ export default function WorkerPortalPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-background via-background to-background">
-      {/* Fixed Header */}
-      <div className="fixed top-0 left-0 right-0 z-50 border-b border-border/50 bg-background/80 backdrop-blur-xl">
-        <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center">
-              <span className="text-white font-bold text-sm">BMS</span>
-            </div>
-            <div>
-              <p className="font-bold text-foreground text-sm">Worker Portal</p>
-              <p className="text-xs text-foreground/60">Sarah Johnson</p>
-            </div>
-          </div>
-          <div className="flex items-center gap-3">
-            <Button variant="outline" className="border-border/50 text-foreground hover:bg-foreground/5 bg-transparent">
-              Messages
-            </Button>
-            <div className="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center text-white text-sm font-bold cursor-pointer hover:opacity-80 transition">
-              SJ
-            </div>
-          </div>
-        </div>
-      </div>
-
       {/* Main Content */}
       <div className="pt-20 pb-8 px-6">
         <div className="max-w-7xl mx-auto space-y-8">
