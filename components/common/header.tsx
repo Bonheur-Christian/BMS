@@ -4,6 +4,7 @@ import { Bell, Search, User, ChevronDown } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { ThemeToggle } from '@/components/theme-toggle'
+import Link from 'next/link'
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -35,9 +36,11 @@ export function DashboardHeader() {
         <ThemeToggle />
 
         {/* Notifications */}
-        <Button variant="ghost" size="icon" className="relative text-foreground/70 hover:text-foreground hover:bg-foreground/5">
-          <Bell className="w-5 h-5" />
-          <span className="absolute top-2 right-2 w-2 h-2 bg-destructive rounded-full" />
+        <Button variant="ghost" size="icon" className="relative text-foreground/70 hover:text-foreground hover:bg-foreground/5" asChild>
+          <Link href="/portal/business-owner/notifications">
+            <Bell className="w-5 h-5" />
+            <span className="absolute top-2 right-2 w-2 h-2 bg-destructive rounded-full" />
+          </Link>
         </Button>
 
         {/* User Menu */}

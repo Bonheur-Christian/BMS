@@ -1,10 +1,13 @@
 'use client';
 
-import React from "react"
-
 import { useState } from 'react';
-import { X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+} from '@/components/ui/dialog';
 
 interface InventoryRequest {
   id: string;
@@ -17,12 +20,14 @@ interface InventoryRequest {
 
 interface InventoryRequestModalProps {
   availableItems: string[];
+  open: boolean;
   onClose: () => void;
   onSubmit: (request: InventoryRequest) => void;
 }
 
 export default function InventoryRequestModal({
   availableItems,
+  open,
   onClose,
   onSubmit,
 }: InventoryRequestModalProps) {
@@ -32,7 +37,7 @@ export default function InventoryRequestModal({
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     if (!itemName || !quantity || !reason) {
       alert('Please fill in all fields');
       return;
@@ -62,16 +67,13 @@ export default function InventoryRequestModal({
   ];
 
   return (
-    <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
-      <div className="bg-card rounded-lg shadow-lg max-w-md w-full mx-4">
-        <div className="flex items-center justify-between p-6 border-b border-border">
-          <h2 className="text-xl font-bold text-foreground">Request Inventory Item</h2>
-          <button onClick={onClose} className="p-1 hover:bg-secondary rounded">
-            <X className="w-6 h-6" />
-          </button>
-        </div>
+    <Dialog open={open} onOpenChange={onClose}>
+      <DialogContent className="max-w-3xl">
+        <DialogHeader>
+          <DialogTitle>Request Inventory Item</DialogTitle>
+        </DialogHeader>
 
-        <form onSubmit={handleSubmit} className="p-6 space-y-4">
+        <form onSubmit={handleSubmit} className="space-y-4">
           <div>
             <label className="block text-sm font-medium text-foreground mb-2">Item Name</label>
             <select
@@ -126,15 +128,15 @@ export default function InventoryRequestModal({
           </div>
 
           <div className="flex gap-3 pt-4">
-            <Button variant="outline" onClick={onClose} className="flex-1 bg-transparent">
+            <Button type="button" variant="outline" onClick={onClose} className="flex-1">
               Cancel
             </Button>
-            <Button type="submit" className="flex-1 bg-primary hover:bg-primary/90">
+            <Button type="submit" className="flex-1">
               Submit Request
             </Button>
           </div>
         </form>
-      </div>
-    </div>
+      </DialogContent>
+    </Dialog>
   );
 }

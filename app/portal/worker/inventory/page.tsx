@@ -131,7 +131,7 @@ export default function InventoryPage() {
     };
 
     return (
-        <div className="p-6 space-y-6">
+        <div className="py-12 space-y-6 w-[95%] mx-auto">
             <div className="flex items-center justify-between">
                 <h2 className="text-2xl font-bold text-foreground">Inventory Management</h2>
                 <Button
@@ -248,13 +248,12 @@ export default function InventoryPage() {
                 </div>
             </div>
 
-            {showRequestModal && (
-                <InventoryRequestModal
-                    availableItems={inventory.map(i => i.name)}
-                    onClose={() => setShowRequestModal(false)}
-                    onSubmit={handleAddRequest}
-                />
-            )}
+            <InventoryRequestModal
+                open={showRequestModal}
+                availableItems={inventory.map(i => i.name)}
+                onClose={() => setShowRequestModal(false)}
+                onSubmit={handleAddRequest}
+            />
         </div>
     );
 }

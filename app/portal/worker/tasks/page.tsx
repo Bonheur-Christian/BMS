@@ -57,8 +57,8 @@ export default function WorkerPortalPage() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-background via-background to-background">
       {/* Main Content */}
-      <div className="pt-20 pb-8 px-6">
-        <div className="max-w-7xl mx-auto space-y-8">
+      <div className="pt-12 pb-8 px-6">
+        <div className="w-[95%] mx-auto space-y-8">
           {/* Welcome Section */}
           <div className="space-y-2">
             <h1 className="text-4xl font-bold text-foreground">Welcome, Sarah 👋</h1>
@@ -74,7 +74,7 @@ export default function WorkerPortalPage() {
             ].map((stat, i) => {
               const Icon = stat.icon
               return (
-                <Card key={i} className="border-border/50 bg-card/50 backdrop-blur p-6">
+                <Card key={i} className="border-border/50 bg-card/50 backdrop-blur p-6 hover:border-primary/40 duration-300">
                   <div className="flex items-start justify-between">
                     <div>
                       <p className="text-sm text-foreground/60">{stat.label}</p>
