@@ -5,10 +5,6 @@ import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Edit2, Save, X } from 'lucide-react';
 
-interface ProfilePageProps {
-  userRole: string;
-}
-
 interface ProfileData {
   name: string;
   position: string;
@@ -22,11 +18,11 @@ interface ProfileData {
   joinDate: string;
 }
 
-export default function ProfilePage({ userRole }: ProfilePageProps) {
+export default function ProfilePage() {
   const [isEditing, setIsEditing] = useState(false);
   const [profile, setProfile] = useState<ProfileData>({
     name: 'John Doe',
-    position: userRole || 'Staff',
+    position: 'Staff',
     businessUnit: 'Warehouse Operations',
     status: 'Active',
     email: 'john.doe@company.com',

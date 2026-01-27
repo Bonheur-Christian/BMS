@@ -8,7 +8,6 @@ import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Textarea } from '@/components/ui/textarea'
 import { ArrowLeft, Building2, Users, DollarSign, Calendar } from 'lucide-react'
-import Link from 'next/link'
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 
@@ -214,7 +213,7 @@ export default function CreateDepartmentPage() {
                         <ul className="space-y-3 text-sm text-foreground/70">
                             <li className="flex gap-2">
                                 <span className="text-primary font-bold">•</span>
-                                <span>Choose a descriptive name that clearly identifies the department's function</span>
+                                <span>Choose a descriptive name that clearly identifies the department&apos;s function</span>
                             </li>
                             <li className="flex gap-2">
                                 <span className="text-primary font-bold">•</span>
@@ -226,11 +225,11 @@ export default function CreateDepartmentPage() {
                             </li>
                             <li className="flex gap-2">
                                 <span className="text-primary font-bold">•</span>
-                                <span>Provide a clear description so team members understand the department's purpose</span>
+                                <span>Provide a clear description so team members understand the department&apos;s purpose</span>
                             </li>
                             <li className="flex gap-2">
                                 <span className="text-primary font-bold">•</span>
-                                <span>You can add team members to the department after it's created</span>
+                                <span>You can add team members to the department after it&apos;s created</span>
                             </li>
                         </ul>
                     </Card>
