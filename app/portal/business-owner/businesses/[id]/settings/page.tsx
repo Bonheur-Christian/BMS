@@ -5,7 +5,7 @@ import { Card } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Checkbox } from '@/components/ui/checkbox'
-import { ArrowLeft, Save, AlertTriangle, Trash2, Eye, EyeOff, Copy, Shield, Bell, Users, Clock, Lock } from 'lucide-react'
+import { ArrowLeft, Save, AlertTriangle, Trash2, Shield, Bell, Lock } from 'lucide-react'
 import Link from 'next/link'
 import { useParams } from 'next/navigation'
 import { useState } from 'react'
@@ -13,7 +13,6 @@ import { useState } from 'react'
 export default function BusinessSettingsPage() {
   const params = useParams()
   const businessId = params.id
-  const [showApiKey, setShowApiKey] = useState(false)
   const [isSaving, setIsSaving] = useState(false)
   const [activeTab, setActiveTab] = useState('general')
 
@@ -64,11 +63,10 @@ export default function BusinessSettingsPage() {
             <button
               key={tab.id}
               onClick={() => setActiveTab(tab.id)}
-              className={`flex items-center gap-2 px-4 py-2 font-medium text-sm transition-all whitespace-nowrap ${
-                activeTab === tab.id
+              className={`flex items-center gap-2 px-4 py-2 font-medium text-sm transition-all whitespace-nowrap ${activeTab === tab.id
                   ? 'text-primary border-b-2 border-primary'
                   : 'text-foreground/60 hover:text-foreground'
-              }`}
+                }`}
             >
               <Icon className="w-4 h-4" />
               {tab.label}
@@ -268,7 +266,7 @@ export default function BusinessSettingsPage() {
         </div>
       )}
 
-     
+
 
       {/* DANGER ZONE */}
       {activeTab === 'danger' && (

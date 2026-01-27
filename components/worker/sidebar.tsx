@@ -1,6 +1,6 @@
 'use client'
 
-import { Settings, LogOut, Menu, X, CheckSquare, Package, Megaphone, TrendingUp, User } from 'lucide-react'
+import { LogOut, Menu, X, CheckSquare, Package, Megaphone, TrendingUp, User } from 'lucide-react'
 import Link from 'next/link'
 import { useState } from 'react'
 import { Button } from '@/components/ui/button'

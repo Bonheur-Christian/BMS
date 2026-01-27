@@ -93,7 +93,7 @@ const sampleRequests: InventoryRequest[] = [
 ];
 
 export default function InventoryPage() {
-    const [inventory, setInventory] = useState(sampleInventory);
+    const [inventory] = useState(sampleInventory);
     const [requests, setRequests] = useState(sampleRequests);
     const [showRequestModal, setShowRequestModal] = useState(false);
 
